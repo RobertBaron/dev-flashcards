@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngIf="card">
+    <ion-card-header>
+      <ion-card-title>
+        {{card.title}}
+      </ion-card-title>
+      <p>{{ framework }} | {{ version }}</p>
+    </ion-card-header>
+
+
+    <ion-card-content>
+      <p>{{card.description}}</p>
+      <div class="usage">
+        <ion-toolbar color="primary">
+          <ion-title>Usage</ion-title>
+        </ion-toolbar>
+
+        <ion-list>
+          <ion-list-header>
+            {{card.definition.usage}}
+          </ion-list-header>
+          <ion-item *ngFor="let param of card.definition.params">
+            <span class="type-hint type-hint-label">{{param.type}}</span>
+            {{param.name}}
+            <p>
+              {{param.details}}
+            </p>
+
+          </ion-item>
+
+        </ion-list>
+
+      </div>
+
+      <ion-card-content>
+        <ion-card-title>Sample</ion-card-title>
+          <pre><code>
+            {{card.sample}}
+          </code></pre>
+      </ion-card-content>
+    </ion-card-content>
+
+    <ion-row no-padding>
+
+      <ion-col text-right>
+        <button ion-button clear small color="primary" icon-left (click)="next();">
+          <ion-icon name='arrow-forward'></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>

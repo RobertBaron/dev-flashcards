@@ -1,0 +1,9 @@
+<ion-content class="card-background-page">
+
+  <ion-card *ngFor="let framework of frameworks" (click)="navigate(framework)">
+    <img src="assets/img/card-sf.png"/>
+    <div class="card-title">{{framework.name}} {{framework.version}} </div>
+    <div class="card-subtitle">{{framework.cards}} Cards</div>
+  </ion-card>
+
+</ion-content>
